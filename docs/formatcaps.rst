@@ -160,7 +160,7 @@ capabilities enabled in the chip and BIOS you will see:
         <microcode version='236'/>
         <signature family='6' model='142' stepping='12'/>
         <counter name='tsc' frequency='2303997000' scaling='no'/>
-        <topology sockets='1' dies='1' cores='4' threads='2'/>
+        <topology sockets='1' dies='1' clusters='1' cores='4' threads='2'/>
         <maxphysaddr mode='emulate' bits='39'/>
         <feature name='ds'/>
         <feature name='acpi'/>
@@ -225,14 +225,14 @@ capabilities enabled in the chip and BIOS you will see:
               <sibling id='0' value='10'/>
             </distances>
             <cpus num='8'>
-              <cpu id='0' socket_id='0' die_id='0' core_id='0' siblings='0,4'/>
-              <cpu id='1' socket_id='0' die_id='0' core_id='1' siblings='1,5'/>
-              <cpu id='2' socket_id='0' die_id='0' core_id='2' siblings='2,6'/>
-              <cpu id='3' socket_id='0' die_id='0' core_id='3' siblings='3,7'/>
-              <cpu id='4' socket_id='0' die_id='0' core_id='0' siblings='0,4'/>
-              <cpu id='5' socket_id='0' die_id='0' core_id='1' siblings='1,5'/>
-              <cpu id='6' socket_id='0' die_id='0' core_id='2' siblings='2,6'/>
-              <cpu id='7' socket_id='0' die_id='0' core_id='3' siblings='3,7'/>
+              <cpu id='0' socket_id='0' die_id='0' cluster_id='0' core_id='0' siblings='0,4'/>
+              <cpu id='1' socket_id='0' die_id='0' cluster_id='0' core_id='1' siblings='1,5'/>
+              <cpu id='2' socket_id='0' die_id='0' cluster_id='0' core_id='2' siblings='2,6'/>
+              <cpu id='3' socket_id='0' die_id='0' cluster_id='0' core_id='3' siblings='3,7'/>
+              <cpu id='4' socket_id='0' die_id='0' cluster_id='0' core_id='0' siblings='0,4'/>
+              <cpu id='5' socket_id='0' die_id='0' cluster_id='0' core_id='1' siblings='1,5'/>
+              <cpu id='6' socket_id='0' die_id='0' cluster_id='0' core_id='2' siblings='2,6'/>
+              <cpu id='7' socket_id='0' die_id='0' cluster_id='0' core_id='3' siblings='3,7'/>
             </cpus>
           </cell>
         </cells>
