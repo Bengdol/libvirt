@@ -44,12 +44,48 @@ The ``<host/>`` element consists of the following child elements:
    This element exposes information on the hypervisor's migration capabilities,
    like live migration, supported URI transports, and so on.
 ``topology``
-   This element embodies the host internal topology. Management applications may
-   want to learn this information when orchestrating new guests - e.g. due to
-   reduce inter-NUMA node transfers. Note that the ``sockets`` value reported
-   here is per-NUMA-node; this is in contrast to the value given in domain
-   definitions, which is interpreted as a total number of sockets for the
-   domain.
+   This element describes the host CPU topology in detail.
+
+   Management applications may want to use this information when defining new
+   guests: for example, in order to ensure that all vCPUs are scheduled on
+   CPUs that are in the same NUMA node or even CPU core.
+
+   The ``cells`` sub-element contains a list of NUMA nodes, each one
+   represented by a single ``cell`` element. Within each ``cell``, a ``cpus``
+   sub-element contains a list of logical CPUs, each one represented by a
+   single ``cpu`` element. In both cases, the ``num`` attribute of the
+   top-level element contains the number of children.
+
+   Each ``cpu`` element contains the following attributes:
+
+   ``id``
+     CPU identifier. Can be used to refer to it in the context of
+     `CPU tuning <formatdomain.html#cpu-tuning>`__.
+
+   ``socket_id``
+     Identifier for the physical package the CPU is in.
+
+   ``die_id``
+     Identifier for the die the CPU is in.
+
+     Note that not all architectures support CPU dies: if the current
+     architecture doesn't, the value will be 0 for all CPUs.
+
+   ``cluster_id``
+     Identifier for the cluster the CPU is in.
+
+     Note that not all architectures support CPU clusters: if the current
+     architecture doesn't, the value will be 0 for all CPUs.
+
+   ``core_id``
+     Identifier for the core the CPU is in.
+
+   ``siblings``
+     List of CPUs that are in the same core.
+
+     The list will include the current CPU, plus all other CPUs that have the
+     same values for ``socket_id``, ``die_id``, ``cluster_id`` and ``core_id``.
+
 ``secmodel``
    To find out default security labels for different security models you need to
    parse this element. In contrast with the former elements, this is repeated
